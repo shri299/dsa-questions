@@ -6,13 +6,16 @@ public class RemoveCharacter {
 
     public static void main(String[] args) {
         removeLetter("bcaacata");
+
         StringBuilder answer = new StringBuilder();
         removeLetterRecursion("bcaacata",answer, 0);
         System.out.println(answer);
+
         System.out.println(recursionOne("bcaacata",0));
-        String output = "";
-        recursionTwo("bcaacata",output);
-        System.out.println(output);
+
+        recursionTwo("bcaacata","");
+
+        System.out.println(recursionThree("bcaacata"));
     }
 
     public static void removeLetter(String str){
@@ -60,10 +63,24 @@ public class RemoveCharacter {
         if (input.isEmpty()){
             return;
         }
-        if (input.charAt(0)=='a'){
+        char ch = input.charAt(0);
+        System.out.println(output);
+        if (ch=='a'){
             recursionTwo(input.substring(1),output);
         }else {
-            recursionTwo(input.substring(1),output + input.charAt(0));
+            recursionTwo(input.substring(1),output + ch);
+        }
+    }
+
+    public static String recursionThree(String input){
+        if (input.isEmpty()){
+            return "";
+        }
+        char ch = input.charAt(0);
+        if (ch=='a'){
+            return recursionThree(input.substring(1));
+        }else {
+            return ch + recursionThree(input.substring(1));
         }
     }
 }
