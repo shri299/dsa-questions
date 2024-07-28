@@ -3,9 +3,11 @@ package mypackage.recursion.backtracking;
 public class CountPathOfMaze {
 
     public static void main(String[] args) {
-        System.out.println(count(3,3));
+        //System.out.println(count(3,3));
+        printPath(3,3,"");
     }
 
+    //count number of ways to reach end
     static int count(int r, int c){
         if (r==1 || c==1){
             return 1;
@@ -17,5 +19,22 @@ public class CountPathOfMaze {
         count = count + count(r,c-1);
 
         return count;
+    }
+
+    //print path to reach maze
+    static void printPath(int r, int c, String output){
+
+        if (r==1 && c==1){
+            System.out.println(output);
+            return;
+        }
+
+        if (r>1){
+            printPath(r-1,c,output+"d");
+        }
+        if (c>1){
+            printPath(r,c-1,output+"r");
+        }
+
     }
 }
