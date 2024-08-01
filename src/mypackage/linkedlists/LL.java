@@ -21,6 +21,16 @@ public class LL {
         size = size+1;
     }
 
+    public void deleteFirst(){
+        if (head==null){
+            System.out.println("no nodes available to be deleted :)");
+        }else {
+            Node node = head;
+            head = node.next;
+            size=size-1;
+        }
+    }
+
     public void insertLast(int val){
         Node node = new Node(val);
         if (head==null){
@@ -35,6 +45,24 @@ public class LL {
             tail=node;
         }
         size=size+1;
+    }
+
+    public void deleteLast(){
+        if (head==null){
+            System.out.println("no nodes available to be deleted :)");
+        } else if (size==1) {
+            head=null;
+            tail=null;
+            size= 0;
+        } else {
+            Node temp = head;
+            while (temp.next.next!=null){
+                temp = temp.next;
+            }
+            temp.next=null;
+            tail=temp;
+            size=size-1;
+        }
     }
 
     public void insertInBetween(int index, int val){
