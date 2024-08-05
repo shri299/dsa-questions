@@ -10,6 +10,20 @@ public class LL {
         this.size=0;
     }
 
+    public void RemoveDuplicates(){
+        Node node = head;
+        while (node.next!=null){
+            if (node.val==node.next.val){
+                node.next=node.next.next;
+                size--;
+            }else {
+                node=node.next;
+            }
+        }
+        tail=node;
+        tail.next=null;
+    }
+
     public void insertFirst(int val){
         Node node = new Node(val);
         node.next=head;
