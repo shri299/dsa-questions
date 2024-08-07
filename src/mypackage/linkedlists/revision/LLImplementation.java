@@ -57,6 +57,30 @@ public class LLImplementation {
     }
 
 
+    ////////////////////////INSERT USING RECURSION PART1/////////////
+    public void insertUsingRecursion(int val,int index,Node temp){
+        if (index==1){
+            Node node = new Node(val);
+            node.next=temp.next;
+            temp.next=node;
+            return;
+        }
+        temp=temp.next;
+        insertUsingRecursion(val,index-1,temp);
+    }
+
+    //////////////////////////INSERT USING RECURSION PART TWO/////////
+    public Node insertRecursion(int val, int index, Node node){
+        if (index==0){
+            Node temp = new Node(val,node);
+            return temp;
+        }
+
+        node.next = insertRecursion(val,index--,node.next);
+        return node;
+    }
+
+
     ///////////////////////////DELETE FIRST/////////////////////////
     public void deleteFirst(){
         if (head==null){
