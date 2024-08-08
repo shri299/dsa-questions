@@ -39,7 +39,21 @@ public class LLImportantQuestions {
         //return dummyList.next
     }
 
+    ////////////////////////REVERSE A LINKED LIST/////////////
 
+    public void reverseLinkedList(){
+        Node prev = null;
+        Node curr = head;
+
+        while (curr!=null){
+            Node temp1 = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp1;
+        }
+
+        head = prev;
+    }
 
 
 
