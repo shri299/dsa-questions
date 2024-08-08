@@ -19,6 +19,28 @@ public class LLImportantQuestions {
 
 
 
+    //////////MERGE TWO SORTED LL//////////////////////////////////
+    public void mergeList(Node head, Node head1){
+        Node dummyList = new Node();
+        Node tail = dummyList;
+
+        if (head.val> head1.val){
+            tail.next  = head;
+            head = head.next;
+            tail = tail.next;
+        }else {
+            tail.next  = head1;
+            head1 = head1.next;
+            tail = tail.next;
+        }
+
+        tail.next = head!=null ? head : head1;
+
+        //return dummyList.next
+    }
+
+
+
 
 
 
@@ -51,5 +73,7 @@ public class LLImportantQuestions {
             this.val=val;
             this.next=next;
         }
+
+        public Node (){}
     }
 }
