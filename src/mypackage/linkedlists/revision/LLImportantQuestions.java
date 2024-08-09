@@ -55,6 +55,31 @@ public class LLImportantQuestions {
         head = prev;
     }
 
+    ////////////////rotate right//////////////
+
+    public Node rotateRight( int k) {
+        if(head==null || head.next==null){
+            return head;
+        }
+        int length = 1;
+
+        Node temp = head;
+        while(temp.next!=null){
+            length = length + 1;
+            temp = temp.next;
+        }
+
+        int itr_length = length-k;
+        Node temp1 = head;
+        for(int i=1;i<itr_length;i++){
+            temp1 = temp1.next;
+        }
+        temp1.next=null;
+        temp.next = head;
+
+        return temp;
+    }
+
 
 
 
