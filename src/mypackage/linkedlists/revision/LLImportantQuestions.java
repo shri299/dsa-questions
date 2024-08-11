@@ -81,8 +81,6 @@ public class LLImportantQuestions {
     }
 
 
-
-
     ///////////////////////////INSERT FIRST///////////////////////////
     public void insertFirst(int val){
         Node node = new Node(val);
