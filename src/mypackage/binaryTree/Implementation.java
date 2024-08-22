@@ -4,56 +4,51 @@ import java.util.Scanner;
 
 public class Implementation {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Implementation implementation = new Implementation();
-        implementation.populate(scanner);
-        implementation.display();
-    }
+    Node root;
 
     public Implementation(){
 
     }
 
-    private static class Node{
-        int value;
+    public class Node{
+        int val;
         Node left;
         Node right;
-        public Node(int value){
-            this.value = value;
+
+        public Node (int val){
+            this.val=val;
         }
     }
 
-    private Node root;
-
-    //insert elements in the binary tree
+    //insert elements
 
     public void populate(Scanner scanner){
-        System.out.println("Enter the root node value");
-        int value  = scanner.nextInt();
-        root = new Node(value);
-        populate(scanner,root);
+        System.out.println("Enter the root node");
+        int val = scanner.nextInt();
+        root = new Node(val);
+
+        insertNonRootNodes(root,scanner);
+
+        display();
     }
 
-    public void  populate(Scanner scanner, Node node){
-        System.out.println("Do you want to enter left of: "+node.value);
+    public void insertNonRootNodes(Node root, Scanner scanner) {
+        System.out.println("Do you want to enter left of "+root.val);
         boolean left = scanner.nextBoolean();
-
         if (left){
-            System.out.println("Enter the left value for: "+node.value);
-            int leftValue = scanner.nextInt();
-            node.left = new Node(leftValue);
-            populate(scanner,node.left);
+            System.out.println("Enter the left of "+root.val);
+            int val = scanner.nextInt();
+            root.left=new Node(val);
+            insertNonRootNodes(root.left,scanner);
         }
 
-        System.out.println("Do you want to enter right of: "+node.value);
+        System.out.println("Do you want to enter right of "+root.val);
         boolean right = scanner.nextBoolean();
-
         if (right){
-            System.out.println("Enter the right value for: "+node.value);
-            int rightValue = scanner.nextInt();
-            node.right = new Node(rightValue);
-            populate(scanner,node.right);
+            System.out.println("Enter the right of "+root.val);
+            int val = scanner.nextInt();
+            root.right=new Node(val);
+            insertNonRootNodes(root.right,scanner);
         }
     }
 
@@ -61,27 +56,16 @@ public class Implementation {
         display(root,"");
     }
 
-    public void display(Node node, String indent){
-        if (node==null){
+    private void display(Node root, String s) {
+        if (root==null){
             return;
         }
-        System.out.println(indent+node.value);
-        display(node.left,indent+"\t");
-        display(node.right,indent+"\t");
+        System.out.println(s+root.val);
+
+        Node left = root.left;
+        display(left,s+"----");
+
+        Node right = root.right;
+        display(right,s+"----");
     }
-
-//    public void prettyDisplay(){
-//        prettyDisplay(root,0);
-//    }
-
-//    public void prettyDisplay(Node node, int level) {
-//        if (node==null){
-//            return;
-//        }
-//        prettyDisplay(node.right,level+1);
-//
-//        if (level!=0){
-//
-//        }
-//    }
 }
