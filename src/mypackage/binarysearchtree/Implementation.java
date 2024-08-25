@@ -58,9 +58,24 @@ public class Implementation {
     }
 
     public void insertMultiple(int[] nums){
-        for (int i=0;i<nums.length;i++){
-            this.insert(nums[i]);
+        for (int num : nums) {
+            this.insert(num);
         }
+    }
+
+    public void insertSorted(int[] nums){
+        insertSorted(nums,0,nums.length);
+    }
+
+    private void insertSorted(int[] nums, int start, int end){
+        if (start>=end){
+            return;
+        }
+        int mid = (start + end)/2;
+
+        this.insert(nums[mid]);
+        insertSorted(nums,start,mid);
+        insertSorted(nums,mid+1,end);
     }
 
     public boolean balanced(){
