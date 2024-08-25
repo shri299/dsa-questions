@@ -63,7 +63,7 @@ public class Implementation {
         }
     }
 
-    public void insertSorted(int[] nums){
+    public void insertSorted(int[] nums){ //nlog(n)  number of elements * insertion time of each
         insertSorted(nums,0,nums.length);
     }
 
