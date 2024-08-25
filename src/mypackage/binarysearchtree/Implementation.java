@@ -36,6 +36,10 @@ public class Implementation {
         return node.height;
     }
 
+    public void insert(int val){
+        root = insert(val,root);
+    }
+
     public Node insert(int val, Node node){
         if (node==null){
             return new Node(val);
@@ -51,6 +55,22 @@ public class Implementation {
 
         return node;
 
+    }
+
+    public void insertMultiple(int[] nums){
+        for (int i=0;i<nums.length;i++){
+            this.insert(nums[i]);
+        }
+    }
+
+    public boolean balanced(){
+        return balanced(root);
+    }
+
+    private boolean balanced(Node node){
+        if (node==null)
+            return true;
+        return Math.abs(height(node.left)-height(node.right))<=1 && balanced(node.left) && balanced(node.right);
     }
 
     public void display(){
