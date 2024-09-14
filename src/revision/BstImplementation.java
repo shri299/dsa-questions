@@ -42,8 +42,8 @@ public class BstImplementation {
         }
         int mid = (i + i1)/2;
         insert(num[mid]);
-        insertSortedVal(num,i,mid);
-        insertSortedVal(num,mid+1,i1);
+        insertSortedVal(num,i,mid); //first build the entire left of the root
+        insertSortedVal(num,mid+1,i1); //then build the entire right of the root
     }
 
     private Node insertHelper(Node root, int val) {

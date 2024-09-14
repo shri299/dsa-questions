@@ -1,7 +1,5 @@
 package revision;
 
-import mypackage.linkedlists.revision.RemoveNNodeFromBack;
-
 import java.util.Scanner;
 
 public class BtImplementation {
