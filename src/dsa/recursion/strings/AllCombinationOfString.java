@@ -1,4 +1,4 @@
-package mypackage.recursion.strings;
+package dsa.recursion.strings;
 
 import java.util.ArrayList;
 
