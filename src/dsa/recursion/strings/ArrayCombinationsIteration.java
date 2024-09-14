@@ -1,8 +1,6 @@
-package mypackage.recursion.strings;
+package dsa.recursion.strings;
 
-import java.time.temporal.JulianFields;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ArrayCombinationsIteration {
