@@ -8,6 +8,8 @@ public class ShortestPathDAG {
 
     //Shortest Path in Directed Acyclic Graph - Topological Sort
 
+    //TC : O(v+e) {topological sort} + O(v+e) {while(this will run for total nodes) + for(this will run for each edge)}
+
     static Stack<Integer> stack = new Stack<>();
 
     public static void main(String[] args) {
