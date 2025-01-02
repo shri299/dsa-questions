@@ -16,6 +16,8 @@ public class Fibonacci {
         int[] dp = new int[n+1];
         Arrays.fill(dp,-1);
 
+        Arrays.sort(dp);
+
         dp[0] = 0;
         dp[1] = 1;
 
