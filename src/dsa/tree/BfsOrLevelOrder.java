@@ -4,6 +4,9 @@ import java.util.*;
 
 public class BfsOrLevelOrder {
 
+    //TC : O(N)
+    //SC : O(N)
+
     Node root;
     Queue<Node> queue = new LinkedList<>();
 
