@@ -5,6 +5,8 @@ import java.util.List;
 
 public class SumOfSubsets {
 
+    //TC : 2^n
+    //SC : 2^n
     public static void main(String[] args) {
         int[] arr = {3,2,1};
         List<Integer> ans = new ArrayList<>();
