@@ -1,4 +1,4 @@
-package dsa;
+package dsa.binarysearch;
 
 public class InfiniteArray {
 
