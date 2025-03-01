@@ -18,6 +18,7 @@ public class FrogJump {
     //Exponential time complexity
     //Notice we are going from end array to start array
     //at every stair, All I want is the min of 1 step or 2 step
+    //TC : 2^n
     private static int computeMinEnergy(int n, int[] energy) {
         if(n==0){
             return 0;
@@ -31,6 +32,8 @@ public class FrogJump {
         return Math.min(le,re);
     }
 
+    //TC : O(n)
+    //SC : O(n) {dp array} + O(n) {stack space}
     private static int computeMinEnergyMemoize(int n, int[] energy) {
         if(n==0){
             return 0;
