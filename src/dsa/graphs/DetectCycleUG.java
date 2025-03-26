@@ -8,7 +8,7 @@ import java.util.Queue;
 class DetectCycleUG
 {
     static boolean checkForCycle(ArrayList<ArrayList<Integer>> adj, int s,
-                                 boolean vis[], int parent[])
+                                 boolean vis[])
     {
         Queue<Node> q =  new LinkedList<>(); //BFS
         q.add(new Node(s, -1));
@@ -44,12 +44,10 @@ class DetectCycleUG
     {
         boolean vis[] = new boolean[V];
         Arrays.fill(vis,false);
-        int parent[] = new int[V];
-        Arrays.fill(parent,-1);
 
-        for(int i=0;i<V;i++)
+        for(int i=0;i<V;i++) //for connected components
             if(vis[i]==false)
-                if(checkForCycle(adj, i,vis, parent))
+                if(checkForCycle(adj, i,vis))
                     return true;
 
         return false;
