@@ -27,10 +27,11 @@ public class DijkstraAlgoSet {
             for (ArrayList<Integer> neighbours : adjList.get(pair.node)){
                 if (neighbours.get(0) + pair.distance<dist[neighbours.get(1)]){
                     if (dist[neighbours.get(1)]!=Integer.MAX_VALUE){
-                        set.remove(new Pair(dist[neighbours.get(1)],neighbours.get(1)));
-                        set.add(new Pair(neighbours.get(0)+pair.distance,neighbours.get(1)));
-                        dist[neighbours.get(1)] = neighbours.get(0)+pair.distance;
+                        set.remove(new Pair(dist[neighbours.get(1)],neighbours.get(1))); //although we save up some
+                        // iterations here, but the removal will take log(n), so kind of a tradeoff you'll have to choose
                     }
+                    set.add(new Pair(neighbours.get(0)+pair.distance,neighbours.get(1)));
+                    dist[neighbours.get(1)] = neighbours.get(0)+pair.distance;
                 }
             }
         }
