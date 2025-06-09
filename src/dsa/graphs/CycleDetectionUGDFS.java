@@ -1,11 +1,9 @@
 package dsa.graphs;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class Dfs {
+public class CycleDetectionUGDFS {
 
-    //suppose the graph starts from and goes till 10
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> nodeList = new ArrayList<ArrayList<Integer>>();
 
@@ -29,27 +27,34 @@ public class Dfs {
         nodeList.get(5).add(2);
         nodeList.get(5).add(3);
 
-        System.out.println(nodeList);
-        System.out.println(traversal(1,5,nodeList));
+        traversal(1,5,nodeList);
     }
 
-    public static List<Integer> traversal(int startNode, int totalNodes, ArrayList<ArrayList<Integer>> adjList){
-        List<Integer> ans = new ArrayList<>();
+    public static void traversal(int startNode, int totalNodes, ArrayList<ArrayList<Integer>> adjList){
         boolean[] visitedArray = new boolean[totalNodes+1];
         visitedArray[0] = true; //we have nothing to do with this index
-        traverse(ans,visitedArray,adjList,startNode);
-        return ans;
+        traverse(visitedArray,adjList,startNode,-1);
     }
 
-    private static void traverse(List<Integer> ans, boolean[] visitedArray, ArrayList<ArrayList<Integer>> adjList, int node) {
-        ans.add(node);
+    public static void traverse(boolean[] visitedArray, ArrayList<ArrayList<Integer>> adjList, int node,int parent) {
         visitedArray[node]=true;
         for (Integer neighbourNodes : adjList.get(node)){
-            if (!visitedArray[neighbourNodes]){
-                traverse(ans,visitedArray,adjList,neighbourNodes);
+            if(visitedArray[neighbourNodes] && neighbourNodes!=parent){
+                System.out.println("cycle detected");
+                return;
+            } else if (!visitedArray[neighbourNodes]) {
+                traverse(visitedArray,adjList,neighbourNodes,node);
             }
         }
     }
 
+    static class Pair{
+        int node;
+        int parent;
 
+        public Pair (int node, int parent){
+            this.node=node;
+            this.parent=parent;
+        }
+    }
 }

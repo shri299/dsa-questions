@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class DetectCycleUG
+class CycleDetectionUGBFS
 {
     static boolean checkForCycle(ArrayList<ArrayList<Integer>> adj, int s,
                                  boolean vis[])
@@ -64,20 +64,19 @@ class DetectCycleUG
         adj.get(2).add(3);
         adj.get(3).add(2);
 
-        DetectCycleUG obj = new DetectCycleUG();
+        CycleDetectionUGBFS obj = new CycleDetectionUGBFS();
         boolean ans = obj.isCycle(4, adj);
         if (ans)
             System.out.println("1");
         else
             System.out.println("0");
     }
-}
-
-class Node {
-    int first;
-    int second;
-    public Node(int first, int second) {
-        this.first = first;
-        this.second = second;
+    static class Node {
+        int first;
+        int second;
+        public Node(int first, int second) {
+            this.first = first;
+            this.second = second;
+        }
     }
 }

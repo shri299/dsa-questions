@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Bfs {
+public class BFSInUG {
 
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> nodeList = new ArrayList<ArrayList<Integer>>();

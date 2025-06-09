@@ -2,7 +2,7 @@ package dsa.graphs;
 
 import java.util.ArrayList;
 
-public class CycleInDG {
+public class CycleDetectionDGDFS {
 
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> nodeList = new ArrayList<ArrayList<Integer>>();

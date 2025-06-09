@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class CycleDetectDGDfs {
+public class CycleDetectionDGBFS {
 
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
