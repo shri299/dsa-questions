@@ -19,7 +19,7 @@ public class BinarySearch {
         int end = arr.length-1;
         while(start<=end){
             //find the middle element
-            //the below is a better way to find mid, making sure that at not point (start + mid) exceed the int range
+            //the below is a better way to find mid, making sure that (start + mid) does not exceed the int range
             int mid = start + (end-start)/2;
             if (arr[mid]==key)
                 return mid;
@@ -29,7 +29,7 @@ public class BinarySearch {
                 start = mid + 1;
             }
         }
-        return start;
+        return -1;
     }
 
 
