@@ -7,22 +7,47 @@ import java.util.Stack;
 public class QueueWithStack {
 
     public static void main(String[] args) {
-        Queue<Integer> queue = new LinkedList<>();
-        Stack<Integer> stack = new Stack<>();
-        //insertion in the queue will be same as that in stack
-        stack.push(5);
-        stack.push(4);
-        stack.push(3);
+        MyQueue queue = new MyQueue();
+        queue.enqueue(1);
+        queue.enqueue(2);
+        System.out.println(queue.dequeue()); // returns 1
+        System.out.println(queue.peek());    // returns 2
+        System.out.println(queue.isEmpty()); // returns false
+    }
 
-        //removal
-        Stack<Integer> helper = new Stack<>();
-        while (!stack.isEmpty()){
-            helper.push(stack.pop());
+    static class MyQueue {
+        private final Stack<Integer> stack1;
+        private final Stack<Integer> stack2;
+
+        public MyQueue() {
+            stack1 = new Stack<>();
+            stack2 = new Stack<>();
         }
-        int removed_item = helper.pop();
-        while (!helper.isEmpty()){
-            stack.push(helper.pop());
+
+        public void enqueue(int x) {
+            stack1.push(x);
         }
-        System.out.println(removed_item);
+
+        public int dequeue() {
+            if (stack2.isEmpty()) {
+                while (!stack1.isEmpty()) {
+                    stack2.push(stack1.pop());
+                }
+            }
+            return stack2.pop();
+        }
+
+        public int peek() {
+            if (stack2.isEmpty()) {
+                while (!stack1.isEmpty()) {
+                    stack2.push(stack1.pop());
+                }
+            }
+            return stack2.peek();
+        }
+
+        public boolean isEmpty() {
+            return stack1.isEmpty() && stack2.isEmpty();
+        }
     }
 }
