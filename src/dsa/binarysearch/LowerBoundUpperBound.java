@@ -1,6 +1,10 @@
 package dsa.binarysearch;
 
-public class LowerBound {
+public class LowerBoundUpperBound {
+
+
+    //TC : O(logn)
+    //SC : O(1)
 
     public static void main(String[] args) {
         int[] arr = {3,5,8,9,9,15,19};
