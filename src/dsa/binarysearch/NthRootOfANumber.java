@@ -4,6 +4,9 @@ import static com.sun.org.apache.xalan.internal.lib.ExsltMath.power;
 
 public class NthRootOfANumber {
 
+    //TC : O(logn)
+    //SC : O(1)
+
     public static void main(String[] args) {
         int n = 27;
         int m = 3;
