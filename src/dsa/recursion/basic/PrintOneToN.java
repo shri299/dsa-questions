@@ -1,17 +1,17 @@
-package dsa.recursion.verybasic;
+package dsa.recursion.basic;
 
-public class PrintNToOne {
+public class PrintOneToN {
     public static void main(String[] args) {
         int n = 5;
-        printNToOne(n);
+        printOneToN(n);
     }
 
-    private static void printNToOne(int n) {
+    private static void printOneToN(int n) {
         if (n <= 0) {
             return;
         }
 
+        printOneToN(n - 1);
         System.out.println(n);
-        printNToOne(n - 1);
     }
 }

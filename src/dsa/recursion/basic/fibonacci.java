@@ -1,4 +1,4 @@
-package dsa.recursion.verybasic;
+package dsa.recursion.basic;
 
 public class fibonacci {
 
